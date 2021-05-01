@@ -1,0 +1,10 @@
+===================Train data:using top 100 test instances============================
+Files path: C:\Users\faqeerrehman\MSU\OneDrive - Montana State University\Research\Clem\ResearchPaperDNN3\Results20Epochs\Research2\DataSetWithHighAccuracy\NewDS
+
+Original: First 20 iterations data from source (Source_1To10Iterations.xls,and Source_11To25Iterations.xls) and first 20 iterations data from follow-up (Followup_1To10Iterations.xlsx, and Followup_11To25Iterations.xlsx) : 4000 instances 
+Mutant1: First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant2:First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+
+Total: 8000 instances
+
+Large change b=10 is done for MR0, hence giving a very less accuracy than the original one

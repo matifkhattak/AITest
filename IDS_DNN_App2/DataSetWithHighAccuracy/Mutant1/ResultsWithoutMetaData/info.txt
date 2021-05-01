@@ -1,0 +1,9 @@
+=============Mutant1============
+model.add(Dense(768,activation='relu')) #768
+
+To
+
+model.add(Dense(7680,activation='relu')) #768
+
+File names: Source.xls & Follup.xls
+==========

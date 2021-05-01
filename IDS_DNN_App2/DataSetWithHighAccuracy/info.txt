@@ -1,0 +1,32 @@
+MR0: Shifting each point by 0.3;
+
+=============Mutant1, with metadata information============
+model.add(Dense(768,activation='relu')) #768
+
+To
+
+model.add(Dense(1768,activation='relu')) #768
+
+=============Mutant2============
+featuresToLocation = 42
+    X = traindata.iloc[:, 1:featuresToLocation]  # traindata.iloc[:,1:42]
+    Y = traindata.iloc[:, 0]
+    C = testdata.iloc[:, 0]
+    T = testdata.iloc[:, 1:featuresToLocation]  # testdata.iloc[:,1:42]
+    smallDataC = smalltestdata.iloc[:, 0]
+    smallDataT = smalltestdata.iloc[:, 1:featuresToLocation] 
+
+TO
+
+featuresToLocation = 22
+    X = traindata.iloc[:, 1:featuresToLocation]  # traindata.iloc[:,1:42]
+    Y = traindata.iloc[:, 0]
+    C = testdata.iloc[:, 0]
+    T = testdata.iloc[:, 1:featuresToLocation]  # testdata.iloc[:,1:42]
+    smallDataC = smalltestdata.iloc[:, 0]
+    smallDataT = smalltestdata.iloc[:, 1:featuresToLocation] 
+
+=========================================================================
+train.csv: 
+
+test.csv: 

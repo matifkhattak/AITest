@@ -1,0 +1,164 @@
+---
+title: "T-TestForResearchProblem2"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+dataset <- c(1, 1, 4, 5, 4, 6)
+dataset[duplicated(dataset)]
+```
+
+```{r cars}
+library(tidyverse)
+library(dplyr)
+
+# Shallow NN (Intrustion Detection System)
+#dataset <- read_csv("C:/Users/faqeerrehman/MSU/OneDrive - Montana State University/Research/Clem/IntrusionDetectionSystem/Results/Research2/DataSetWithHighAccuracy/MR0/GeneratedDatasetForAnalysis/train.csv")
+
+#Deep NN (DNN3)
+dataset <- read_csv("C:/Users/faqeerrehman/MSU/OneDrive - Montana State University/Research/Clem/ResearchPaperDNN3/Results20Epochs/Research2/DataSetWithHighAccuracy/MR0/GeneratedDataSet/WithMetaDataAndProbabilityFeatures/train.csv")
+
+#Extract and remove duplicated rows
+#dataset<-unique(dataset)
+
+```
+```{r}
+##########Prob1########
+prob1_ForBug <- dataset$prob1[dataset$classLabel =="Bug"]
+prob1_ForNoBug <- dataset$prob1[dataset$classLabel =="NoBug"]
+diffBwSrcFlw = prob1_ForBug - prob1_ForNoBug
+t.test(prob1_ForBug,prob1_ForNoBug ,mu=0,conf.level=0.95,alternative="two.sided", paired = TRUE)
+# dependent 2-group Wilcoxon Signed Rank Test
+#https://www.statmethods.net/stats/nonparametric.html
+wilcox.test(prob1_ForBug,prob1_ForNoBug,paired=TRUE)
+
+#Histogram
+par(mfrow=c(1,2)) 
+hist(diffBwSrcFlw,
+    main="Source Executions",
+    xlab= "Probabilities for class 8 ",breaks=10)
+
+#Q-Q Plot
+par(mfrow=c(1,2))
+qqnorm(diffBwSrcFlw,main = "Normal Q-Q Plot")
+qqline(diffBwSrcFlw,col="red",lwd=2)
+
+#BoxPlot
+boxplot(prob1_ForBug,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(3,4))
+boxplot(prob1_ForNoBug,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(2,4))
+```
+```{r}
+##########Prob2########
+prob2_ForBug <- dataset$prob2[dataset$classLabel =="Bug"]
+prob2_ForNoBug <- dataset$prob2[dataset$classLabel =="NoBug"]
+diffBwSrcFlw = prob2_ForNoBug - prob2_ForBug
+t.test(prob2_ForNoBug,prob2_ForBug,mu=0,conf.level=0.95,alternative="two.sided", paired = TRUE)
+# dependent 2-group Wilcoxon Signed Rank Test
+#https://www.statmethods.net/stats/nonparametric.html
+wilcox.test(prob2_ForNoBug,prob2_ForBug,paired=TRUE)
+#Histogram
+par(mfrow=c(1,2)) 
+hist(diffBwSrcFlw,
+    main="Source Executions",
+    xlab= "Probabilities for class 8 ",breaks=10)
+
+#Q-Q Plot
+par(mfrow=c(1,2))
+qqnorm(diffBwSrcFlw,main = "Normal Q-Q Plot")
+qqline(diffBwSrcFlw,col="red",lwd=2)
+
+
+#BoxPlot
+boxplot(prob2_ForBug,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(3,4))
+boxplot(prob2_ForNoBug,
+        main = "Non-Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(2,4))
+```
+```{r}
+##########Prob3########
+prob3_ForBug <- dataset$prob3[dataset$classLabel =="Bug"]
+prob3_ForNoBug <- dataset$prob3[dataset$classLabel =="NoBug"]
+diffBwSrcFlw = prob3_ForBug - prob3_ForNoBug
+t.test(prob3_ForBug,prob3_ForNoBug,mu=0,conf.level=0.95,alternative="two.sided", paired = TRUE)
+# dependent 2-group Wilcoxon Signed Rank Test
+#https://www.statmethods.net/stats/nonparametric.html
+wilcox.test(prob3_ForBug,prob3_ForNoBug,paired=TRUE)
+#Histogram
+par(mfrow=c(1,2)) 
+hist(diffBwSrcFlw,
+    main="Source Executions",
+    xlab= "Probabilities for class 8 ",breaks=10)
+
+#Q-Q Plot
+par(mfrow=c(1,2))
+qqnorm(diffBwSrcFlw,main = "Normal Q-Q Plot")
+qqline(diffBwSrcFlw,col="red",lwd=2)
+
+#BoxPlot
+boxplot(prob3_ForBug,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(3,4))
+boxplot(prob3_ForNoBug,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(2,4))
+```
+```{r}
+##########Combining Prob1,Prob2,Prob3,...etc. and then check for significance difference at a broad level (Buggy vs Non-Buggy)########
+##Note: We think this (merging all probabilities) may not give us a true picture, e.g., what if the range of probabilities that were predicted for 'prob1' during source execution are predicted for 'prob3' of follow up execution, it is like (+1,-1), so we may not find a statistical significant difference at a broad level (Buggy vs Non-buggy). Therefore, it is better to perform analysis for each probability column separately to check how much the model is consistent in prediction for the same class label(s).
+new_Buggy_DataSet <- data.frame(c(prob1_ForBug, prob2_ForBug, prob3_ForBug))
+new_NonBuggy_DataSet <- data.frame(c(prob1_ForNoBug, prob2_ForNoBug, prob3_ForNoBug))
+diffBwSrcFlw = new_NonBuggy_DataSet - new_Buggy_DataSet
+t.test(diffBwSrcFlw,mu=0,conf.level=0.95,alternative="two.sided")
+
+#Histogram
+#diffBwSrcFlw <- as.numeric(diffBwSrcFlw)
+#rename the vague length column
+diffBwSrcFlw %>% rename(probabilities = c.prob2_ForNoBug..prob2_ForNoBug..prob3_ForNoBug.) ## Not sure that how this line solved the error? If we open 'diffBwSrcFlw' table, it will still have the same old vague column name 
+par(mfrow=c(1,2)) 
+hist(diffBwSrcFlw$c.prob2_ForNoBug..prob2_ForNoBug..prob3_ForNoBug.,
+    main="Source Executions",
+    xlab= "Probabilities",breaks=10)
+
+#Q-Q Plot
+par(mfrow=c(1,2))
+qqnorm(diffBwSrcFlw$c.prob2_ForNoBug..prob2_ForNoBug..prob3_ForNoBug.,main = "Normal Q-Q Plot")
+qqline(diffBwSrcFlw$c.prob2_ForNoBug..prob2_ForNoBug..prob3_ForNoBug.,col="red",lwd=2)
+
+
+#BoxPlot
+boxplot(new_Buggy_DataSet,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(3,4))
+boxplot(new_NonBuggy_DataSet,
+        main = "Buggy Code",
+        names = c("Difference"),
+        ylab= "Scores",
+        col=c(2,4))
+```
+
+
+

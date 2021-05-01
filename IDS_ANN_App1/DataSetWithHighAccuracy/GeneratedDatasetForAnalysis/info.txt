@@ -1,0 +1,14 @@
+=======dataset / train.csv==================
+100 instances from file TestCIDDS_week1Processed.csv, from instance no =37 /row no (because header is included) =38 to 137, this range is containing mix of classes.
+
+Mutant Free: First 20 iterations from source.xls and MR0.xls that will give us 4000 instances (from row no (because header and extra empty row is included) =39 to 138)
+Mutant1: First 10 iterations from source.xls and MR0.xls that will give us 2000 instances
+Mutant2: First 10 iterations from source.xls and MR0.xls that will give us 2000 instances
+
+
+===============================================
+detailedDataset.xlsx: contains the dataset for each of mutantfree, mutant1 and mutant2
+train.csv: contains the prepared dataset by merging the instances of mutantfree,mutant and mutant2
+train_ForR.csv: this is same as train.csv for made it compatible to work with R for performing statistica test (e.g. t-test).
+
+========================================

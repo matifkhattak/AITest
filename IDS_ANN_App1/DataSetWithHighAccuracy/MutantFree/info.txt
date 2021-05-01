@@ -1,0 +1,2 @@
+These results are obtained on correct program (free of any injected mutant). We want to see the results of both mutant free  & mutated program.
+To calculate the avg accuracy with some standard deviation, calculate commulative avg of source + MR0 accuracies.

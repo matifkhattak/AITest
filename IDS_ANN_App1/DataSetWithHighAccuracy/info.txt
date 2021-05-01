@@ -1,0 +1,22 @@
+==========Mutant1============
+L1 = 16
+
+To
+
+L1 = 1600
+
+will have an impact on
+
+model.add(Dense(LAYERS[0], input_dim=input_dim,
+                        activation="sigmoid",
+                        kernel_regularizer=l2(PENALTY),
+                        activity_regularizer=l2(PENALTY)))
+
+
+
+==========Mutant2==============
+NB_EPOCH = 10 
+
+To
+
+NB_EPOCH = 20 

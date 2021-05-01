@@ -1,0 +1,7 @@
+====Mutant====
+featuresToLocation = 42
+
+featuresToLocation = 22
+
+File names: MR0.xls contains results when a large change was made e.g., b=10 giving low accuracy than the original
+==========

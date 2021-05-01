@@ -1,0 +1,8 @@
+These results contain probability features + metadata features e.g. training time, parameters learned etc.
+
+=============Mutant1============
+model.add(Dense(768,activation='relu')) #768
+
+To
+
+model.add(Dense(1768,activation='relu')) #768

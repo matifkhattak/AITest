@@ -1,0 +1,11 @@
+===================Train data:using top 100 test instances============================
+C:\Users\faqeerrehman\MSU\OneDrive - Montana State University\Research\Clem\ResearchPaperDNN3\Results20Epochs\Research2\DataSetWithHighAccuracy\MR0\Mutant1\ResultsWithMetaData
+
+Original/Mutant free: First 20 iterations data from source and first 20 iterations data from follow-up, total: 4000 instances 
+Mutant1: First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant2:First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+
+Total: 8000 instances
+
+
+Small change b=0.3 is done for MR0, thus giving the same accuracy as that of original
