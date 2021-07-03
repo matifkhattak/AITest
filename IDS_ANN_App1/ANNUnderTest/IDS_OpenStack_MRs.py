@@ -41,7 +41,7 @@ class p1b2Tests(unittest.TestCase):
 
         ###Very Small change / scaling / shifting
         k = 1;  # np.random.randint(1, 100)
-        b = 10;  # np.random.randint(100)
+        b = 0.3 #10;  # np.random.randint(100)
         for i in range(X_train.shape[1]):
             X_train[:, i] = X_train[:, i] * k + b
             X_test[:, i] = X_test[:, i] * k + b
