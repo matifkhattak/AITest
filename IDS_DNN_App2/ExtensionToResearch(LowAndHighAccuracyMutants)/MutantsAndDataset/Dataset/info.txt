@@ -1,0 +1,6 @@
+in detailedDataset.xls, for mutant1,mutant2 and mutant5, we will see that we have included the data for 16 iterations (instead of 10)
+for each source and follow-up sheets. This is due to that when we removed the duplicates (in python code for building the models)
+it created a class imbalance problem (i.e., almost 1638 less instances for buggy class label).
+
+First 13 iterations of mutant1,mutant2 and mutant5 are at top. However, the other 3 iterations data for mutant1 and mutant2 (but not mutant5)
+are at the bottom (after nobuggy class data)

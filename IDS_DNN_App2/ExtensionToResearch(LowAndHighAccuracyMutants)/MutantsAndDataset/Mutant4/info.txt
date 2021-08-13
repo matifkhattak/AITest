@@ -1,0 +1,13 @@
+
+
+=====Mutant4=====
+=====data.py=====
+
+It is valid mutant for ResearchpaperDNN3.py but not reachable in IDS_OpenStack.py because normalization step is not included in  IDS_OpenStack.py project.
+It is inside data.py (trainX = scaler.transform(X), go to definition of transform(X))     
+ X /= norms[:, np.newaxis]
+
+
+To
+
+ X *= norms[:, np.newaxis]

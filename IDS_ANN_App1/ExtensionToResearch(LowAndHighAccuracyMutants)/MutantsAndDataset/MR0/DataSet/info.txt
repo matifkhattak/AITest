@@ -1,0 +1,20 @@
+100 instances from file TestCIDDS_week1Processed.csv, from instance no =37, as row no (because header is included) so start from =38 to 137, this range is containing mix of classes.
+=======dataset / train.csv==================
+100 instances from file TestCIDDS_week1Processed.csv, from instance no =37, (as header and an empty ros is included) so start from row no =39 to 138, this range is containing mix of classes.
+
+===================Train data:using top 100 test instances============================
+detailedDataSet.xls file contains data about the the mutants in 'ExtensionToResearch2' folder.
+
+Original: First 50 iterations data from source (Source_1To25.xls,and Source_26To60Iterations.xls) and first 50 iterations data from follow-up (MR0_1To25.xlsx, and MR_26To60.xlsx) : in total we have 10,000 instances for mutant free/original program.
+Files location for Mutant1, Mutant2 and MutantFree are at C:\Users\faqeerrehman\MSU\OneDrive - Montana State University\Research\Clem\IntrusionDetectionSystem\Results\Research2\DataSetWithHighAccuracy\MR0
+Mutant1: First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant2: First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant3:First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant4:First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+Mutant5: First 10 iterations data from source and first 10 iterations data from follow-up : 2000 instances
+
+Total: 20,000 instances
+
+==========================================================================================================
+
+.xls file contains data about the the mutants in 'ExtensionToResearch2' and 'DataSetWithHighAccuracy' folder.

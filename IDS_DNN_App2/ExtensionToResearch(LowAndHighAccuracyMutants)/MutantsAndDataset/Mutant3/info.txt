@@ -1,0 +1,16 @@
+=====Mutant3=====
+=====training.py=====
+
+                if total_loss is None:
+                    total_loss = loss_weight * output_loss
+                else:
+                    total_loss += loss_weight * output_loss
+
+To 
+
+if total_loss is None:
+                    total_loss = loss_weight / output_loss
+                else:
+                    total_loss += loss_weight * output_loss
+
+
